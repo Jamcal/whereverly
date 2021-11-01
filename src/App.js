@@ -2,6 +2,8 @@ import './App.css';
 import React, {useEffect, useState} from "react";
 
 function App(){
+  //Openweather API key, removed for Git
+  const apiKey = ' ';
   const coords =  {Glasgow: "lat=55.860916&lon=-4.251433", Edinburgh: "lat=55.953251&lon=-3.188267",
                   Aberdeen: "lat=57.149651&lon=-2.099075", Cambridge: "lat=52.205276&lon=0.119167",
                   London: "lat=51.509865&lon=-0.118092", Sheffield: "lat=53.383331&lon=-1.466667"};
@@ -28,7 +30,7 @@ function App(){
       const difference = dateDiffInDays(eventDate);
       if(difference >= 0 && difference < 6){
         
-        return fetch('https://api.openweathermap.org/data/2.5/onecall?' + coords[events.areas[0].title] + '&exclude=current,minutely,hourly,alerts&appid=fc364ff05ad3917c70d3a7207fc89d7c') 
+        return fetch('https://api.openweathermap.org/data/2.5/onecall?' + coords[events.areas[0].title] + '&exclude=current,minutely,hourly,alerts&appid='+apiKey) 
             .then(res => res.json())
             .then(resp => {
 
